@@ -1,0 +1,7 @@
+{
+  "Parameters" : {
+    "DesiredCapacity" : "1",
+    "InstanceType" : "t2.micro",
+    "Name" : "MythicalDevelopment"
+  }
+}

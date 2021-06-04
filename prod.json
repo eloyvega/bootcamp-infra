@@ -1,0 +1,7 @@
+{
+  "Parameters" : {
+    "DesiredCapacity" : "2",
+    "InstanceType" : "t2.small",
+    "Name" : "MythicalProduction"
+  }
+}

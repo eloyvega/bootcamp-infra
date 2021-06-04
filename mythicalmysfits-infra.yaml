@@ -5,6 +5,12 @@ Parameters:
   CodeDeployServicePolicy:
     Type: String
     Default: arn:aws:iam::aws:policy/service-role/AWSCodeDeployRole
+  InstanceType:
+    Type: String
+  DesiredCapacity:
+    Type: String
+  Name:
+    Type: String
 
 Mappings:
   RegionMap:
@@ -109,7 +115,7 @@ Resources:
         - RegionMap
         - !Ref AWS::Region
         - AmiId
-      InstanceType: t2.micro
+      InstanceType: !Ref InstanceType
       SecurityGroups:
         - !GetAtt InstanceSG.GroupId
       IamInstanceProfile: !Ref InstanceProfile
@@ -131,14 +137,14 @@ Resources:
     Properties:
       AvailabilityZones: !GetAZs
       LaunchConfigurationName: !Ref LaunchConfiguration
-      DesiredCapacity: 3
+      DesiredCapacity: !Ref DesiredCapacity
       MaxSize: 3
       MinSize: 1
       LoadBalancerNames:
         - !Ref LoadBalancer
       Tags:
         - Key: Name
-          Value: MythicalMysfitsAPI
+          Value: !Ref Name
           PropagateAtLaunch: True
 
 Outputs:

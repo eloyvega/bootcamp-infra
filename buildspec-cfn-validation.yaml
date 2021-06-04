@@ -8,4 +8,6 @@ phases:
 artifacts:
   files:
     - mythicalmysfits-infra.yaml
+    - develop.json
+    - prod.json
   discard-paths: yes
