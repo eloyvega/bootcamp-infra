@@ -69,7 +69,6 @@ Resources:
   LoadBalancerSG:
     Type: AWS::EC2::SecurityGroup
     Properties:
-      GroupName: MythicalMysfitsLB
       GroupDescription: Load Balancer
       SecurityGroupIngress:
         - CidrIp: 0.0.0.0/0
@@ -79,7 +78,6 @@ Resources:
   InstanceSG:
     Type: AWS::EC2::SecurityGroup
     Properties:
-      GroupName: MythicalMysfitsInstance
       GroupDescription: Instances
       SecurityGroupIngress:
         - SourceSecurityGroupId: !GetAtt LoadBalancerSG.GroupId
